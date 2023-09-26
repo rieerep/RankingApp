@@ -5,7 +5,8 @@ namespace RankingApp.Controllers
 {
 
     [ApiController]
-    [Route("")]
+    [Route("item")]
+    [Route("item/{cultureType}")]
     public class ItemController : ControllerBase
     {
         private static readonly IEnumerable<ItemModel> Items = new[]
@@ -33,7 +34,7 @@ namespace RankingApp.Controllers
 
         };
 
-        public ItemModel[] Collect(int cultureType)
+        public ItemModel[] Get(int cultureType)
         {
             ItemModel[] items = Items.Where(i => i.ItemType == cultureType).ToArray();
             return items;
